@@ -1,0 +1,23 @@
+@import '/src/styles/abstracts/colors.scss';
+
+.container {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1000px;
+    padding: 0.5rem;
+    .text {
+        .where {
+            font-size: 0.875rem;
+            color: $darkgray;
+        }
+        .any {
+            font-size: 0.75rem;
+            color: $gray;
+        }
+    }
+}
