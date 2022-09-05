@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './LandingPage.scss';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
 import Modal from '../Modal/Modal';
+import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 
 const LandingPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState({ text: '' });
+    const [selectedTab, setSelectedTab] = useState(0);
 
     const handleSearchClick = () => {
         setModalContent({
@@ -24,12 +26,18 @@ const LandingPage = () => {
     return (
         <div style={{ position: 'relative' }}>
             <h1>Landing Page</h1>
-            <div style={{ margin: '1rem 1.5rem' }}>
+            <section style={{ margin: '1rem 1.5rem 0rem' }}>
                 <ClickableSearchBar
                     handleSearchClick={handleSearchClick}
                     handleFilterClick={handleFilterClick}
                 />
-            </div>
+            </section>
+            <section style={{ margin: '1rem 0rem 0rem' }}>
+                <ScrollableSelectionBar
+                    selectedTab={selectedTab}
+                    setSelectedTab={setSelectedTab}
+                />
+            </section>
             <Modal
                 isModalOpen={isModalOpen}
                 closeModal={() => setIsModalOpen(false)}

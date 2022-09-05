@@ -27,7 +27,7 @@ const ClickableSearchBar = (props) => {
         <div className='ClickableSearchBar_container'>
             <div className='search' onClick={handleSearchBarClick}>
                 <div className='icon'>
-                    <Icon iconContent={<BiSearch />} />
+                    <Icon iconContent={{ icon: <BiSearch />, text: '' }} />
                 </div>
                 <div className='text'>
                     <div className='where'>Where to?</div>
