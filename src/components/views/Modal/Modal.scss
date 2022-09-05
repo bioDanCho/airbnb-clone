@@ -1,0 +1,47 @@
+.Modal_container {
+    position: absolute;
+    background-color: aqua;
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+}
+
+.modal_invisible {
+    visibility: hidden;
+}
+
+.modal_open {
+    top: 0;
+    opacity: 1;
+
+    animation: slide-in 0.25s ease-in-out;
+}
+
+.modal_close {
+    top: 100vh;
+    opacity: 0;
+
+    animation: slide-out 0.125s ease-in-out;
+}
+
+@keyframes slide-in {
+    0% {
+        top: 100vh;
+        opacity: 0;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        top: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}

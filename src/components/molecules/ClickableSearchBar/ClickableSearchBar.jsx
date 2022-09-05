@@ -5,13 +5,17 @@ import { BsToggles2 } from 'react-icons/bs';
 import Icon from '../../atoms/Icon/Icon';
 import Button from '../../atoms/Button/Button';
 
-const ClickableSearchBar = () => {
+const ClickableSearchBar = (props) => {
+    const { handleSearchClick, handleSettingsClick } = props;
+
     const handleSearchBarClick = () => {
         console.log('search bar clicked!');
+        handleSearchClick();
     };
 
     const handleButtonClick = () => {
         console.log('settings button clicked!');
+        handleSettingsClick();
     };
 
     const btnOptions = {
