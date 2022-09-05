@@ -1,9 +1,9 @@
 @import '/src/styles/abstracts/colors.scss';
 
-.container {
+.ClickableSearchBar_container {
     border: 1px solid black;
     width: 100%;
-    height: 55px;
+    height: 3.4375rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

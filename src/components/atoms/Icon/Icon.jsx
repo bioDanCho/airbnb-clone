@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Icon = (props) => {
-    const { children: iconEl } = props;
+    const { iconContent } = props;
 
-    return <div>{iconEl}</div>;
+    return <div>{iconContent}</div>;
 };
 
 export default Icon;
