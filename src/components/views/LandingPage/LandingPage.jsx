@@ -14,9 +14,9 @@ const LandingPage = () => {
         setIsModalOpen(true);
     };
 
-    const handleSettingsClick = () => {
+    const handleFilterClick = () => {
         setModalContent({
-            text: 'settings modal',
+            text: 'filter modal',
         });
         setIsModalOpen(true);
     };
@@ -27,7 +27,7 @@ const LandingPage = () => {
             <div style={{ margin: '1rem 1.5rem' }}>
                 <ClickableSearchBar
                     handleSearchClick={handleSearchClick}
-                    handleSettingsClick={handleSettingsClick}
+                    handleFilterClick={handleFilterClick}
                 />
             </div>
             <Modal

@@ -6,7 +6,7 @@ import Icon from '../../atoms/Icon/Icon';
 import Button from '../../atoms/Button/Button';
 
 const ClickableSearchBar = (props) => {
-    const { handleSearchClick, handleSettingsClick } = props;
+    const { handleSearchClick, handleFilterClick } = props;
 
     const handleSearchBarClick = () => {
         console.log('search bar clicked!');
@@ -14,8 +14,8 @@ const ClickableSearchBar = (props) => {
     };
 
     const handleButtonClick = () => {
-        console.log('settings button clicked!');
-        handleSettingsClick();
+        console.log('filter button clicked!');
+        handleFilterClick();
     };
 
     const btnOptions = {
@@ -34,7 +34,7 @@ const ClickableSearchBar = (props) => {
                     <div className='any'>Anywhere • Any week • Add guests</div>
                 </div>
             </div>
-            <div className='settings'>
+            <div className='filter'>
                 <Button
                     btnContent={<BsToggles2 />}
                     btnOptions={btnOptions}
