@@ -1,15 +1,16 @@
 @import '/src/styles/abstracts/colors.scss';
 
 .Modal_container {
-    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     --modal-height: var(--modal-height);
     z-index: 999;
-    height: 100vh;
-    width: 100vw;
 
     .backdrop {
         background-color: $darkgray;
-        height: 50px;
         opacity: 0.5;
         height: calc(100vh - var(--modal-height));
     }

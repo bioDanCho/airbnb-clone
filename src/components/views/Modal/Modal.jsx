@@ -10,12 +10,15 @@ const Modal = (props) => {
 
     React.useEffect(() => {
         if (isModalOpen) {
+            document.body.style.overflow = 'hidden';
             setModalClasses(['Modal_container', 'modal_open']);
+        } else {
+            document.body.style.overflow = 'auto';
+            setModalClasses(['Modal_container', 'modal_close']);
         }
     }, [isModalOpen]);
 
     const handleCloseClick = () => {
-        setModalClasses(['Modal_container', 'modal_close']);
         closeModal();
     };
 

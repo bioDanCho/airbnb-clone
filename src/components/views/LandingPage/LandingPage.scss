@@ -3,16 +3,22 @@
 .LandingPage_container {
     position: relative;
 
-    .searchbar_section {
-        margin: 0 1.5rem;
-        padding: 1rem 0;
-    }
+    .top {
+        position: sticky;
+        top: 0;
+        background-color: #fff;
 
-    .selectionbar_section {
-        padding-bottom: 1rem;
+        .searchbar_section {
+            margin: 0 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .selectionbar_section {
+        }
     }
 
     .cards_section {
         margin: 0 1.5rem;
+        padding-top: 1rem;
     }
 }

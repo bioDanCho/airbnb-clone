@@ -4,11 +4,12 @@ import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSear
 import Modal from '../Modal/Modal';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
+import { useAppContext } from '../../../context/AppContext';
 
 const LandingPage = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState({ text: '' });
     const [selectedTab, setSelectedTab] = useState(0);
+    const { isModalOpen, setIsModalOpen } = useAppContext();
 
     const handleSearchClick = () => {
         setModalContent({
@@ -26,18 +27,20 @@ const LandingPage = () => {
 
     return (
         <div className='LandingPage_container'>
-            <section className='searchbar_section'>
-                <ClickableSearchBar
-                    handleSearchClick={handleSearchClick}
-                    handleFilterClick={handleFilterClick}
-                />
-            </section>
-            <section className='selectionbar_section'>
-                <ScrollableSelectionBar
-                    selectedTab={selectedTab}
-                    setSelectedTab={setSelectedTab}
-                />
-            </section>
+            <div className='top'>
+                <section className='searchbar_section'>
+                    <ClickableSearchBar
+                        handleSearchClick={handleSearchClick}
+                        handleFilterClick={handleFilterClick}
+                    />
+                </section>
+                <section className='selectionbar_section'>
+                    <ScrollableSelectionBar
+                        selectedTab={selectedTab}
+                        setSelectedTab={setSelectedTab}
+                    />
+                </section>
+            </div>
             <section className='cards_section'>
                 <LandingPageCardsSection />
             </section>
@@ -54,7 +57,7 @@ const LandingPage = () => {
                     isModalOpen={isModalOpen}
                     closeModal={() => setIsModalOpen(false)}
                     modalContent={modalContent}
-                    modalHeight={'99vh'}
+                    modalHeight={'50vh'}
                 />
             )}
         </div>
