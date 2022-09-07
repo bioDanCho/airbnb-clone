@@ -1,0 +1,32 @@
+@import '/src/styles/abstracts/colors.scss';
+
+.Cards_container {
+    padding-bottom: 2rem;
+
+    .carousel {
+        width: 100%;
+        min-height: 20.3125rem;
+        background-color: aqua;
+        border-radius: 15px;
+    }
+
+    .content {
+        font-size: 15px;
+        line-height: 19px;
+        padding-top: 0.75rem;
+
+        .location_and_rank {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .distance {
+            color: $gray;
+        }
+
+        .dates {
+            color: $gray;
+            padding-bottom: 0.25rem;
+        }
+    }
+}

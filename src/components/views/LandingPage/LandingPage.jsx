@@ -3,6 +3,7 @@ import './LandingPage.scss';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
 import Modal from '../Modal/Modal';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
+import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
 
 const LandingPage = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,20 +25,23 @@ const LandingPage = () => {
     };
 
     return (
-        <div style={{ position: 'relative' }}>
-            <h1>Landing Page</h1>
-            <section style={{ margin: '1rem 1.5rem 0rem' }}>
+        <div className='LandingPage_container'>
+            <section className='searchbar_section'>
                 <ClickableSearchBar
                     handleSearchClick={handleSearchClick}
                     handleFilterClick={handleFilterClick}
                 />
             </section>
-            <section style={{ margin: '1rem 0rem 0rem' }}>
+            <section className='selectionbar_section'>
                 <ScrollableSelectionBar
                     selectedTab={selectedTab}
                     setSelectedTab={setSelectedTab}
                 />
             </section>
+            <section className='cards_section'>
+                <LandingPageCardsSection />
+            </section>
+
             {modalContent.text === 'search modal' ? (
                 <Modal
                     isModalOpen={isModalOpen}

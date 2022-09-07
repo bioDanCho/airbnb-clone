@@ -1,7 +1,18 @@
 @use '/src/styles/styles.scss' as *;
 
-// .test {
-//     @include themify($themes) {
-//         color: themed('text-primary');
-//     }
-// }
+.LandingPage_container {
+    position: relative;
+
+    .searchbar_section {
+        margin: 0 1.5rem;
+        padding: 1rem 0;
+    }
+
+    .selectionbar_section {
+        padding-bottom: 1rem;
+    }
+
+    .cards_section {
+        margin: 0 1.5rem;
+    }
+}
