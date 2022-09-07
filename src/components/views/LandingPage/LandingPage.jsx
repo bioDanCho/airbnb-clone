@@ -5,6 +5,9 @@ import Modal from '../Modal/Modal';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
 import { useAppContext } from '../../../context/AppContext';
+import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
+import Button from '../../atoms/Button/Button';
+import { BsFillMapFill } from 'react-icons/bs';
 
 const LandingPage = () => {
     const [modalContent, setModalContent] = useState({ text: '' });
@@ -27,7 +30,7 @@ const LandingPage = () => {
 
     return (
         <div className='LandingPage_container'>
-            <div className='top'>
+            <div className='top_content'>
                 <section className='searchbar_section'>
                     <ClickableSearchBar
                         handleSearchClick={handleSearchClick}
@@ -60,6 +63,54 @@ const LandingPage = () => {
                     modalHeight={'50vh'}
                 />
             )}
+
+            <div className='bottom_content'>
+                <AnimatedDiv
+                    animProgress={[0, 0.1]}
+                    opacityProgress={[0, 1]}
+                    // xPosProgress={[0, 0]}
+                    yPosProgress={[0, 0]}
+                >
+                    <div className='map_btn'>
+                        <Button
+                            btnContent={
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <span style={{ paddingRight: '5px' }}>
+                                        Map
+                                    </span>
+                                    <BsFillMapFill />
+                                </div>
+                            }
+                            onButtonClick={() => {
+                                alert('map clicked!');
+                            }}
+                            btnOptions={null}
+                            btnStyleOverride={{
+                                outline: '1px solid rgba(0, 0, 0, 0.08)',
+                                borderRadius: '24px',
+                                padding: '11px 19px',
+                                color: '#FFF',
+                                fontSize: '12px',
+                                backgroundColor: 'rgb(34, 34, 34)',
+                            }}
+                        />
+                    </div>
+                </AnimatedDiv>
+                <AnimatedDiv
+                    animProgress={[0.2, 0.3]}
+                    opacityProgress={[1, 1]}
+                    // xPosProgress={[0, 0]}
+                    yPosProgress={[0, 100]}
+                >
+                    <div className='test'>test</div>
+                </AnimatedDiv>
+            </div>
         </div>
     );
 };
