@@ -38,11 +38,21 @@ const LandingPage = () => {
                     setSelectedTab={setSelectedTab}
                 />
             </section>
-            <Modal
-                isModalOpen={isModalOpen}
-                closeModal={() => setIsModalOpen(false)}
-                modalContent={modalContent}
-            />
+            {modalContent.text === 'search modal' ? (
+                <Modal
+                    isModalOpen={isModalOpen}
+                    closeModal={() => setIsModalOpen(false)}
+                    modalContent={modalContent}
+                    modalHeight={'100vh'}
+                />
+            ) : (
+                <Modal
+                    isModalOpen={isModalOpen}
+                    closeModal={() => setIsModalOpen(false)}
+                    modalContent={modalContent}
+                    modalHeight={'99vh'}
+                />
+            )}
         </div>
     );
 };

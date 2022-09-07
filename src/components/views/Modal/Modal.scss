@@ -1,9 +1,23 @@
+@import '/src/styles/abstracts/colors.scss';
+
 .Modal_container {
     position: absolute;
-    background-color: aqua;
+    --modal-height: var(--modal-height);
     z-index: 999;
     height: 100vh;
     width: 100vw;
+
+    .backdrop {
+        background-color: $darkgray;
+        height: 50px;
+        opacity: 0.5;
+        height: calc(100vh - var(--modal-height));
+    }
+
+    .content {
+        background-color: aqua;
+        height: var(--modal-height);
+    }
 }
 
 .modal_invisible {
