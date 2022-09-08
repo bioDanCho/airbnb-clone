@@ -18,8 +18,6 @@ const Modal = (props) => {
         }
     }, [isModalOpen]);
 
-    const handleCloseClick = () => {};
-
     return (
         <div
             className={modalClasses.join(' ')}
