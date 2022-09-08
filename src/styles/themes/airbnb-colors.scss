@@ -1,8 +1,0 @@
-@use 'sass:map';
-@use '/src/styles/abstracts/colors' as *;
-
-$airbnb-colors: (
-    text-primary: map.get($airbnb-colors, 'red'),
-    text-secondary: map.get($airbnb-colors, 'darkgray'),
-    text-tertiary: map.get($airbnb-colors, 'gray'),
-);
