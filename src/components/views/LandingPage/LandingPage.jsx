@@ -60,7 +60,7 @@ const LandingPage = () => {
                     isModalOpen={isModalOpen}
                     closeModal={() => setIsModalOpen(false)}
                     modalContent={modalContent}
-                    modalHeight={'50vh'}
+                    modalHeight={'99vh'}
                 />
             )}
 
