@@ -66,10 +66,10 @@ const LandingPage = () => {
 
             <div className='bottom_content'>
                 <AnimatedDiv
-                    animProgress={[0, 0.1]}
-                    opacityProgress={[0, 1]}
+                    animProgress={[0, 0.1, 0.2, 0.3]}
+                    opacityProgress={[0, 1, 1, 1]}
                     // xPosProgress={[0, 0]}
-                    yPosProgress={[0, 0]}
+                    yPosProgress={[0, 0, 50, 50]}
                 >
                     <div className='map_btn'>
                         <Button
@@ -103,10 +103,11 @@ const LandingPage = () => {
                     </div>
                 </AnimatedDiv>
                 <AnimatedDiv
-                    animProgress={[0.2, 0.3]}
-                    opacityProgress={[1, 1]}
+                    // animProgress={[0.2, 0.3]}
+                    animProgress={[0, 0.1, 0.2, 0.3]}
+                    opacityProgress={[1, 1, 1, 1]}
                     // xPosProgress={[0, 0]}
-                    yPosProgress={[0, 100]}
+                    yPosProgress={[0, 0, 50, 50]}
                 >
                     <div className='test'>test</div>
                 </AnimatedDiv>
