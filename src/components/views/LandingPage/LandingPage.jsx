@@ -7,25 +7,23 @@ import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
+import SearchModalPage from '../SearchModalPage/SearchModalPage';
 import Modal from '../../organisms/Modal/Modal';
 import BottomBar from '../../molecules/BottomBar/BottomBar';
 
 const LandingPage = () => {
-    const [modalContent, setModalContent] = useState({ text: '' });
-    const [selectedTab, setSelectedTab] = useState(0);
     const { isModalOpen, setIsModalOpen } = useAppContext();
 
+    const [modalType, setModalType] = useState('search');
+    const [selectedTab, setSelectedTab] = useState(0);
+
     const handleSearchClick = () => {
-        setModalContent({
-            text: 'search modal',
-        });
+        setModalType('search');
         setIsModalOpen(true);
     };
 
     const handleFilterClick = () => {
-        setModalContent({
-            text: 'filter modal',
-        });
+        setModalType('filter');
         setIsModalOpen(true);
     };
 
@@ -49,21 +47,29 @@ const LandingPage = () => {
                 <LandingPageCardsSection />
             </section>
 
-            {modalContent.text === 'search modal' ? (
+            {/* modal starts */}
+            {modalType === 'search' ? (
                 <Modal
                     isModalOpen={isModalOpen}
-                    closeModal={() => setIsModalOpen(false)}
-                    modalContent={modalContent}
+                    modalContent={
+                        <SearchModalPage
+                            closeModal={() => setIsModalOpen(false)}
+                        />
+                    }
                     modalHeight={'100vh'}
                 />
             ) : (
                 <Modal
                     isModalOpen={isModalOpen}
-                    closeModal={() => setIsModalOpen(false)}
-                    modalContent={modalContent}
+                    modalContent={
+                        <SearchModalPage
+                            closeModal={() => setIsModalOpen(false)}
+                        />
+                    }
                     modalHeight={'99vh'}
                 />
             )}
+            {/* modal ends */}
 
             <div className='bottom_content'>
                 <AnimatedDiv

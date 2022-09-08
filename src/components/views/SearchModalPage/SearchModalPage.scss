@@ -1,0 +1,37 @@
+@import '/src/styles/colors.scss';
+
+.SearchModalPage_container {
+    position: relative;
+    border: 1px solid red;
+    height: 100%;
+    width: 100%;
+    background-color: $lightgray;
+
+    .close_btn {
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 7rem;
+    }
+
+    .cards {
+        padding: 0 1rem;
+    }
+
+    .bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background-color: $white;
+    }
+}
