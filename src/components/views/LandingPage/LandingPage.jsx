@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './LandingPage.scss';
+import { useAppContext } from '../../../context/AppContext';
+import { BsFillMapFill } from 'react-icons/bs';
+import Button from '../../atoms/Button/Button';
+import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
-import Modal from '../Modal/Modal';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
-import { useAppContext } from '../../../context/AppContext';
-import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
-import Button from '../../atoms/Button/Button';
-import { BsFillMapFill } from 'react-icons/bs';
+import Modal from '../Modal/Modal';
+import BottomBar from '../../molecules/BottomBar/BottomBar';
 
 const LandingPage = () => {
     const [modalContent, setModalContent] = useState({ text: '' });
@@ -66,10 +67,10 @@ const LandingPage = () => {
 
             <div className='bottom_content'>
                 <AnimatedDiv
-                    animProgress={[0, 0.1, 0.2, 0.3]}
+                    animProgress={[0, 0.1, 0.4, 0.5]}
                     opacityProgress={[0, 1, 1, 1]}
                     // xPosProgress={[0, 0]}
-                    yPosProgress={[0, 0, 50, 50]}
+                    yPosProgress={[0, 0, 0, 60]}
                 >
                     <div className='map_btn'>
                         <Button
@@ -103,11 +104,13 @@ const LandingPage = () => {
                     </div>
                 </AnimatedDiv>
                 <AnimatedDiv
-                    animProgress={[0, 0.1, 0.2, 0.3]}
+                    animProgress={[0, 0.1, 0.4, 0.5]}
                     opacityProgress={[1, 1, 1, 1]}
-                    yPosProgress={[0, 0, 50, 50]}
+                    yPosProgress={[0, 0, 0, 70]}
                 >
-                    <div className='test'>test</div>
+                    <div className='test'>
+                        <BottomBar />
+                    </div>
                 </AnimatedDiv>
             </div>
         </div>

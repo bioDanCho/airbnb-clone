@@ -6,8 +6,10 @@ const Icon = (props) => {
         iconContent,
         isSelected,
         iconOverrideColor,
-        textOverrideColor,
         iconOverrideSize,
+        iconBottomPadding,
+        textOverrideColor,
+        textOverrideSize,
     } = props;
     const { icon, text } = iconContent;
 
@@ -17,6 +19,7 @@ const Icon = (props) => {
                 style={{
                     color: iconOverrideColor ? iconOverrideColor : '',
                     fontSize: iconOverrideSize ? iconOverrideSize : '',
+                    paddingBottom: iconBottomPadding ? iconBottomPadding : '',
                 }}
             >
                 {icon}
@@ -26,6 +29,7 @@ const Icon = (props) => {
                     className='text'
                     style={{
                         color: textOverrideColor ? textOverrideColor : '',
+                        fontSize: textOverrideSize ? textOverrideSize : '',
                     }}
                 >
                     {text}

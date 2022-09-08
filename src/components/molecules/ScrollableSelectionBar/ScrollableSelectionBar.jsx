@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ScrollableSelectionBar.scss';
 import Icon from '../../atoms/Icon/Icon';
 import { selectionItems } from '../../../assets/data/selection-items-data';

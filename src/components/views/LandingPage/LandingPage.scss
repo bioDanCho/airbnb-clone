@@ -1,5 +1,3 @@
-// @use '/src/styles/styles.scss' as *;
-
 .LandingPage_container {
     position: relative;
 
@@ -25,7 +23,6 @@
     .bottom_content {
         position: fixed;
         bottom: 0;
-        border: 1px solid purple;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -33,15 +30,12 @@
         align-items: center;
 
         .map_btn {
-            border: 1px solid blue;
             width: 88px;
             padding-bottom: 1rem;
         }
 
         .test {
-            border: 1px solid red;
             width: 100vw;
-            height: 50px;
         }
     }
 }
