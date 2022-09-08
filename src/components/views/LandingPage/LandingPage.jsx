@@ -74,9 +74,9 @@ const LandingPage = () => {
             <div className='bottom_content'>
                 <AnimatedDiv
                     animProgress={[0, 0.1, 0.4, 0.5]}
-                    opacityProgress={[0, 1, 1, 1]}
+                    opacityProgress={[1, 1, 1, 1]}
                     // xPosProgress={[0, 0]}
-                    yPosProgress={[0, 0, 0, 60]}
+                    yPosProgress={[60, 0, 0, 60]}
                 >
                     <div className='map_btn'>
                         <Button
