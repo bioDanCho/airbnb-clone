@@ -34,8 +34,10 @@
             padding-bottom: 1rem;
         }
 
-        .test {
+        .bottom_bar {
             width: 100vw;
+            visibility: hidden;
+            z-index: -999;
         }
     }
 }

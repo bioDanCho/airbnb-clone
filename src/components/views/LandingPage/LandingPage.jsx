@@ -7,7 +7,7 @@ import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
-import Modal from '../Modal/Modal';
+import Modal from '../../organisms/Modal/Modal';
 import BottomBar from '../../molecules/BottomBar/BottomBar';
 
 const LandingPage = () => {
@@ -103,12 +103,14 @@ const LandingPage = () => {
                         />
                     </div>
                 </AnimatedDiv>
+
+                {/* this is hidden for now */}
                 <AnimatedDiv
                     animProgress={[0, 0.1, 0.4, 0.5]}
                     opacityProgress={[1, 1, 1, 1]}
                     yPosProgress={[0, 0, 0, 70]}
                 >
-                    <div className='test'>
+                    <div className='bottom_bar'>
                         <BottomBar />
                     </div>
                 </AnimatedDiv>

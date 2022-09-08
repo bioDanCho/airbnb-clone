@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Icon from '../../atoms/Icon/Icon';
 import './BottomBar.scss';
 import { bottomBarIcons } from '../../../assets/data/bottom-bar-icons-data';
+import { Link } from 'react-router-dom';
 
 const BottomBar = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -11,7 +12,12 @@ const BottomBar = () => {
             {bottomBarIcons.map((item, idx) => {
                 const isSelected = selectedIndex === idx;
                 return (
-                    <div key={idx} onClick={() => setSelectedIndex(idx)}>
+                    <Link
+                        key={idx}
+                        to={item.url}
+                        onClick={() => setSelectedIndex(idx)}
+                        style={{ textDecoration: 'none' }}
+                    >
                         <Icon
                             iconContent={item}
                             iconOverrideSize={'24px'}
@@ -20,7 +26,7 @@ const BottomBar = () => {
                             textOverrideSize={'0.625rem'}
                             textOverrideColor={isSelected && '#000'}
                         />
-                    </div>
+                    </Link>
                 );
             })}
         </div>

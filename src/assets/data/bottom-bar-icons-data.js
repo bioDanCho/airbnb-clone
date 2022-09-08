@@ -8,21 +8,26 @@ export const bottomBarIcons = [
     {
         icon: <BiSearch />,
         text: 'Explore',
+        url: '/',
     },
     {
         icon: <AiOutlineHeart />,
         text: 'Wishlists',
+        url: 'wishlists',
     },
     {
         icon: <FaAirbnb />,
         text: 'Trips',
+        url: 'trips',
     },
     {
         icon: <BiMessage />,
         text: 'Inbox',
+        url: 'inbox',
     },
     {
         icon: <CgProfile />,
         text: 'Profile',
+        url: 'profile',
     },
 ];
