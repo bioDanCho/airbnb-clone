@@ -1,4 +1,4 @@
-@import '/src/styles/colors.scss';
+@use '../../../styles/styles.scss' as *;
 
 .Button_container {
     .border {

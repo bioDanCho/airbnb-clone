@@ -1,4 +1,4 @@
-@import '/src/styles/colors.scss';
+@use '../../../styles/styles.scss' as *;
 
 .ClickableSearchBar_container {
     border: 1px solid black;

@@ -1,4 +1,4 @@
-@import '/src/styles/colors.scss';
+@use '../../../styles/styles.scss' as *;
 
 .Modal_container {
     position: fixed;

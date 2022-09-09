@@ -1,4 +1,4 @@
-@import '/src/styles/colors.scss';
+@use '../../../styles/styles.scss' as *;
 
 .SearchModalPage_container {
     position: relative;

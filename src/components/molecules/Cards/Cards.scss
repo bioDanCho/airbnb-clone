@@ -1,4 +1,4 @@
-@import '/src/styles/colors.scss';
+@use '../../../styles/styles.scss' as *;
 
 .Cards_container {
     padding-bottom: 2rem;
