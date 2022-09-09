@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WishlistsPage = () => {
-    return <div>WishlistsPage</div>;
+    return <div style={{ position: 'relative' }}>WishlistsPage</div>;
 };
 
 export default WishlistsPage;

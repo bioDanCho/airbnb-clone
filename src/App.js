@@ -23,16 +23,13 @@ function App() {
                     <Route path='/inbox' element={<InboxPage />}></Route>
                     <Route path='/profile' element={<ProfilePage />}></Route>
                 </Routes>
-
                 <div className='bottom_bar_navigation'>
                     <AnimatedDiv
-                        animProgress={[0, 0.1, 0.4, 0.5]}
-                        opacityProgress={[1, 1, 1, 1]}
-                        yPosProgress={[0, 0, 0, 70]}
+                        animProgress={[0, 0.1, 0.4, 0.5, 1]}
+                        opacityProgress={[1, 1, 1, 1, 1]}
+                        yPosProgress={[0, 0, 0, 70, 0]}
                     >
-                        <div className='test'>
-                            <BottomBar />
-                        </div>
+                        <BottomBar />
                     </AnimatedDiv>
                 </div>
             </BrowserRouter>

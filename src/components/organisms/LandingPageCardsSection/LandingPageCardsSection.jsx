@@ -9,6 +9,11 @@ const LandingPageCardsSection = () => {
             <RoomsCards />
             <RoomsCards />
             <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
         </div>
     );
 };
