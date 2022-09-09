@@ -1,14 +1,14 @@
 import React from 'react';
-import Cards from '../../molecules/Cards/Cards';
+import RoomsCards from '../../molecules/RoomsCards/RoomsCards';
 
 const LandingPageCardsSection = () => {
     return (
         <div>
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
-            <Cards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
+            <RoomsCards />
         </div>
     );
 };

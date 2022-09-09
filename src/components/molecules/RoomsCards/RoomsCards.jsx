@@ -1,9 +1,9 @@
 import React from 'react';
-import './Cards.scss';
+import './RoomsCards.scss';
 
-const Cards = () => {
+const RoomsCards = () => {
     return (
-        <div className='Cards_container'>
+        <div className='RoomsCards_container'>
             <div className='carousel'>image carousel</div>
             <div className='content'>
                 <div className='location_and_rank'>
@@ -20,4 +20,4 @@ const Cards = () => {
     );
 };
 
-export default Cards;
+export default RoomsCards;
