@@ -10,7 +10,7 @@ const SearchModalPage = (props) => {
     const { closeModal } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
-    const { setSearchData } = useAppContext();
+    const { searchData, setSearchData } = useAppContext();
 
     const closeBtnStyle = {
         border: '1px solid #767676',
@@ -79,7 +79,8 @@ const SearchModalPage = (props) => {
                     isExpanded={selectedCard === 'Where'}
                     searchCardsContent={{
                         collapsedTitle: 'Where',
-                        collapsedDefaultText: "I'm flexible",
+                        collapsedDefaultText:
+                            searchData?.where?.destination || "I'm flexible",
                     }}
                 />
                 <SearchCards
