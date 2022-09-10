@@ -2,10 +2,13 @@ import React from 'react';
 import Button from '../../atoms/Button/Button';
 import { BiSearch } from 'react-icons/bi';
 import './SearchCards.scss';
+import { useAppContext } from '../../../context/AppContext';
+import WhereCard from './WhereCard/WhereCard';
 
 const SearchCards = (props) => {
+    const { isModalOpen } = useAppContext();
     const { isExpanded, handleCardClick, searchCardsContent } = props;
-    const { title, collapsedTitle, collapsedDefaultText } = searchCardsContent;
+    const { collapsedTitle, collapsedDefaultText } = searchCardsContent;
 
     if (isExpanded) {
         return (
@@ -16,46 +19,15 @@ const SearchCards = (props) => {
                 onClick={() => handleCardClick(collapsedTitle)}
             >
                 <div className='expanded_container'>
-                    <div className='title'>{title}</div>
-                    <Button
-                        onButtonClick={() =>
-                            alert('Search destinations clicked!')
-                        }
-                        btnContent={
-                            <>
-                                <BiSearch />
-                                <span
-                                    style={{
-                                        paddingLeft: '1rem',
-                                        color: '#767676',
-                                    }}
-                                >
-                                    Search destinations
-                                </span>
-                            </>
-                        }
-                        btnStyleOverride={{
-                            padding: '1rem 1rem',
-                            border: '1px solid #767676',
-                            borderRadius: '10px',
-                            color: '#000',
-                            backgroundColor: '#FFF',
-                            display: 'flex',
-                            alignItems: 'center',
-                        }}
-                    />
-                    <div>more stuff</div>
-                    <div>more stuff</div>
-                    <div>more stuff</div>
-                    <div>more stuff</div>
-                    <div>more stuff</div>
+                    <WhereCard />
                 </div>
             </div>
         );
     }
+
     return (
         <div
-            className='SearchCards_container'
+            className={`SearchCards_container ${isModalOpen ? 'animate' : ''}`}
             onClick={() => handleCardClick(collapsedTitle)}
         >
             <div className='collapsed_container'>

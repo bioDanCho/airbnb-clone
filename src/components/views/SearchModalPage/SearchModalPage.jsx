@@ -4,11 +4,13 @@ import Button from '../../atoms/Button/Button';
 import { GrFormClose } from 'react-icons/gr';
 import { BiSearch } from 'react-icons/bi';
 import SearchCards from '../../molecules/SearchCards/SearchCards';
+import { useAppContext } from '../../../context/AppContext';
 
 const SearchModalPage = (props) => {
     const { closeModal } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
+    const { searchData, setSearchData } = useAppContext();
 
     const closeBtnStyle = {
         border: '1px solid #767676',
@@ -30,11 +32,25 @@ const SearchModalPage = (props) => {
         setSelectedCard(cardType);
     };
 
+    const handleCloseClick = () => {
+        // need to update when context changes
+        setSearchData({
+            where: {
+                destination: '',
+            },
+            when: {},
+            who: {},
+        });
+        setSelectedTab('Stays');
+        setSelectedCard('Where');
+        closeModal();
+    };
+
     return (
         <div className='SearchModalPage_container'>
             <div className='close_btn'>
                 <Button
-                    onButtonClick={() => closeModal()}
+                    onButtonClick={handleCloseClick}
                     btnContent={<GrFormClose />}
                     btnStyleOverride={closeBtnStyle}
                 />
@@ -62,7 +78,6 @@ const SearchModalPage = (props) => {
                     handleCardClick={handleCardClick}
                     isExpanded={selectedCard === 'Where'}
                     searchCardsContent={{
-                        title: 'Where to?',
                         collapsedTitle: 'Where',
                         collapsedDefaultText: "I'm flexible",
                     }}
@@ -71,7 +86,6 @@ const SearchModalPage = (props) => {
                     handleCardClick={handleCardClick}
                     isExpanded={selectedCard === 'When'}
                     searchCardsContent={{
-                        title: "When's your trip?",
                         collapsedTitle: 'When',
                         collapsedDefaultText: 'Add dates',
                     }}
@@ -80,16 +94,29 @@ const SearchModalPage = (props) => {
                     handleCardClick={handleCardClick}
                     isExpanded={selectedCard === 'Who'}
                     searchCardsContent={{
-                        title: "Who's coming?",
                         collapsedTitle: 'Who',
                         collapsedDefaultText: 'Add guests',
                     }}
                 />
             </div>
             <div className='bottom'>
-                <div>Clear all</div>
+                <div
+                    className='clear'
+                    onClick={() =>
+                        // need to update when context changes
+                        setSearchData({
+                            where: {
+                                destination: '',
+                            },
+                            when: {},
+                            who: {},
+                        })
+                    }
+                >
+                    Clear all
+                </div>
                 <Button
-                    onButtonClick={() => closeModal()}
+                    onButtonClick={() => alert('search clicked!')}
                     btnContent={
                         <>
                             <BiSearch />
