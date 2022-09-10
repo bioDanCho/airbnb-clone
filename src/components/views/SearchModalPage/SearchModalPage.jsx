@@ -10,7 +10,7 @@ const SearchModalPage = (props) => {
     const { closeModal } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
-    const { searchData, setSearchData } = useAppContext();
+    const { setSearchData } = useAppContext();
 
     const closeBtnStyle = {
         border: '1px solid #767676',

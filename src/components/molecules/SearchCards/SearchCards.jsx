@@ -1,6 +1,4 @@
 import React from 'react';
-import Button from '../../atoms/Button/Button';
-import { BiSearch } from 'react-icons/bi';
 import './SearchCards.scss';
 import { useAppContext } from '../../../context/AppContext';
 import WhereCard from './WhereCard/WhereCard';
