@@ -62,9 +62,14 @@ const LandingPage = () => {
                 <Modal
                     isModalOpen={isModalOpen}
                     modalContent={
-                        <SearchModalPage
-                            closeModal={() => setIsModalOpen(false)}
-                        />
+                        <div
+                            style={{ backgroundColor: '#FFF', height: '100%' }}
+                        >
+                            <button onClick={() => setIsModalOpen(false)}>
+                                x
+                            </button>
+                            <h1>Filter Modal</h1>
+                        </div>
                     }
                     modalHeight={'99vh'}
                 />
