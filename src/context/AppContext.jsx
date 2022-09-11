@@ -12,14 +12,38 @@ export function AppContextProvider({ children }) {
             destination: '',
         },
         when: {},
-        who: {},
+        who: {
+            adults: 0,
+            children: 0,
+            infants: 0,
+            pets: 0,
+        },
     });
 
-    console.log('test', searchData);
+    const resetSearchData = () => {
+        setSearchData({
+            where: {
+                destination: '',
+            },
+            when: {},
+            who: {
+                adults: 0,
+                children: 0,
+                infants: 0,
+                pets: 0,
+            },
+        });
+    };
 
     return (
         <AppContext.Provider
-            value={{ isModalOpen, setIsModalOpen, searchData, setSearchData }}
+            value={{
+                isModalOpen,
+                setIsModalOpen,
+                searchData,
+                setSearchData,
+                resetSearchData,
+            }}
         >
             {children}
         </AppContext.Provider>

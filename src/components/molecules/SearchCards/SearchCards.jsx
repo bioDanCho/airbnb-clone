@@ -2,11 +2,22 @@ import React from 'react';
 import './SearchCards.scss';
 import { useAppContext } from '../../../context/AppContext';
 import WhereCard from './WhereCard/WhereCard';
+import WhoCard from './WhoCard/WhoCard';
 
 const SearchCards = (props) => {
     const { isModalOpen } = useAppContext();
     const { isExpanded, handleCardClick, searchCardsContent } = props;
     const { collapsedTitle, collapsedDefaultText } = searchCardsContent;
+
+    const renderCard = () => {
+        if (searchCardsContent.collapsedTitle === 'Where') {
+            return <WhereCard />;
+        } else if (searchCardsContent.collapsedTitle === 'When') {
+            return <WhereCard />;
+        } else {
+            return <WhoCard />;
+        }
+    };
 
     if (isExpanded) {
         return (
@@ -16,9 +27,7 @@ const SearchCards = (props) => {
                 }`}
                 onClick={() => handleCardClick(collapsedTitle)}
             >
-                <div className='expanded_container'>
-                    <WhereCard />
-                </div>
+                <div className='expanded_container'>{renderCard()}</div>
             </div>
         );
     }

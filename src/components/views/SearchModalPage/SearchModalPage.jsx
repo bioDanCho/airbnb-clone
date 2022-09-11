@@ -10,7 +10,7 @@ const SearchModalPage = (props) => {
     const { closeModal } = props;
     const [selectedTab, setSelectedTab] = useState('Stays');
     const [selectedCard, setSelectedCard] = useState('Where');
-    const { searchData, setSearchData } = useAppContext();
+    const { searchData, resetSearchData } = useAppContext();
 
     const closeBtnStyle = {
         border: '1px solid #767676',
@@ -33,17 +33,28 @@ const SearchModalPage = (props) => {
     };
 
     const handleCloseClick = () => {
-        // need to update when context changes
-        setSearchData({
-            where: {
-                destination: '',
-            },
-            when: {},
-            who: {},
-        });
+        resetSearchData();
         setSelectedTab('Stays');
         setSelectedCard('Where');
         closeModal();
+    };
+
+    const whoCardCollapsedDefaultText = () => {
+        const { adults, children, infants, pets } = searchData.who;
+        const total = adults + children + infants + pets;
+        if (total === 0) {
+            return 'Add guests';
+        } else {
+            const guestsText = `${adults + children} guest${
+                adults + children > 1 ? 's' : ''
+            }`;
+            const infantsText = `${infants} infant${infants > 1 ? 's' : ''}`;
+            const petsText = `${pets} pet${pets > 1 ? 's' : ''}`;
+
+            return `${guestsText}${infants ? ', ' + infantsText : ''}${
+                pets ? ', ' + petsText : ''
+            }`;
+        }
     };
 
     return (
@@ -96,24 +107,12 @@ const SearchModalPage = (props) => {
                     isExpanded={selectedCard === 'Who'}
                     searchCardsContent={{
                         collapsedTitle: 'Who',
-                        collapsedDefaultText: 'Add guests',
+                        collapsedDefaultText: whoCardCollapsedDefaultText(),
                     }}
                 />
             </div>
             <div className='bottom'>
-                <div
-                    className='clear'
-                    onClick={() =>
-                        // need to update when context changes
-                        setSearchData({
-                            where: {
-                                destination: '',
-                            },
-                            when: {},
-                            who: {},
-                        })
-                    }
-                >
+                <div className='clear' onClick={() => resetSearchData()}>
                     Clear all
                 </div>
                 <Button

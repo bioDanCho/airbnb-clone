@@ -2,7 +2,13 @@ import React, { useMemo } from 'react';
 import './Button.scss';
 
 const Button = (props) => {
-    const { btnContent, btnOptions, onButtonClick, btnStyleOverride } = props;
+    const {
+        btnContent,
+        btnOptions,
+        onButtonClick,
+        btnStyleOverride,
+        isDisabled,
+    } = props;
 
     const btnClasses = [''];
     useMemo(() => {
@@ -15,7 +21,10 @@ const Button = (props) => {
     }, [btnOptions]);
 
     return (
-        <div className='Button_container' onClick={onButtonClick}>
+        <div
+            className={`Button_container ${isDisabled ? 'disabled' : ''}`}
+            onClick={isDisabled ? () => {} : onButtonClick}
+        >
             <div className={btnClasses.join(' ')} style={btnStyleOverride}>
                 {btnContent}
             </div>

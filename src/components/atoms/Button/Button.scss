@@ -10,3 +10,8 @@
         padding: 0.5rem;
     }
 }
+
+.disabled {
+    opacity: 0.2;
+    user-select: none;
+}
