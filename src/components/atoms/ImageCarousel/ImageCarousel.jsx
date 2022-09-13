@@ -1,10 +1,31 @@
 import React from 'react';
 import './ImageCarousel.scss';
 
-const ImageCarousel = () => {
+import { IonSlides, IonSlide } from '@ionic/react';
+
+const slideOpts = {
+    initialSlide: 0,
+    speed: 400,
+};
+
+const ImageCarousel = (props) => {
+    const { images } = props;
     return (
         <div className='ImageCarousel_container'>
-            <div>Image Carousel</div>
+            <IonSlides pager={true} options={slideOpts}>
+                {images.map((url, idx) => {
+                    return (
+                        <IonSlide>
+                            <div
+                                style={{
+                                    '--url': `url(${url})`,
+                                }}
+                                className='slide_image'
+                            ></div>
+                        </IonSlide>
+                    );
+                })}
+            </IonSlides>
         </div>
     );
 };

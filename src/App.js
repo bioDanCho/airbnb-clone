@@ -9,6 +9,14 @@ import { AppContextProvider } from './context/AppContext';
 import AnimatedDiv from './components/atoms/AnimatedDiv/AnimatedDiv';
 import BottomBar from './components/molecules/BottomBar/BottomBar';
 
+// ionic;
+import '@ionic/react/css/core.css';
+import { setupIonicReact } from '@ionic/react';
+
+setupIonicReact({
+    mode: 'md',
+});
+
 function App() {
     return (
         <AppContextProvider>
