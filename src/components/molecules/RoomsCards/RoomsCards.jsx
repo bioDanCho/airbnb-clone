@@ -1,10 +1,13 @@
 import React from 'react';
+import ImageCarousel from '../../atoms/ImageCarousel/ImageCarousel';
 import './RoomsCards.scss';
 
 const RoomsCards = () => {
     return (
         <div className='RoomsCards_container'>
-            <div className='carousel'>image carousel</div>
+            <div className='carousel'>
+                <ImageCarousel />
+            </div>
             <div className='content'>
                 <div className='location_and_rank'>
                     <div>Mill Creek, Pennsylvania, US</div>

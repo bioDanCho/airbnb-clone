@@ -1,0 +1,9 @@
+@use '../../../styles/styles.scss' as *;
+
+.ImageCarousel_container {
+    width: 100%;
+    min-height: inherit;
+    border: 1px solid red;
+    background-color: aqua;
+    border-radius: 15px;
+}
