@@ -5,6 +5,7 @@ import { GrFormClose } from 'react-icons/gr';
 import { BiSearch } from 'react-icons/bi';
 import SearchCards from '../../molecules/SearchCards/SearchCards';
 import { useAppContext } from '../../../context/AppContext';
+import { capitalizeFirstLetter } from '../../../utils/functions/functions';
 
 const SearchModalPage = (props) => {
     const { closeModal } = props;
@@ -57,6 +58,25 @@ const SearchModalPage = (props) => {
         }
     };
 
+    const whenCardCollapsedDefaultText = () => {
+        const { dateType } = searchData.when;
+        const { stayDuration, whenMonthYear } = searchData.when.flexible;
+        if (whenMonthYear.length === 0) {
+            return 'Add dates';
+        } else {
+            const months = whenMonthYear.map((item) => {
+                let monthStr = `${item.slice(0, item.length - 4)}`;
+                if (whenMonthYear.length > 1) {
+                    monthStr = `${item.slice(0, 3)}.`;
+                }
+                return monthStr;
+            });
+            return `${capitalizeFirstLetter(stayDuration)} in ${months.join(
+                ', '
+            )}`;
+        }
+    };
+
     return (
         <div className='SearchModalPage_container'>
             <div className='close_btn'>
@@ -99,7 +119,7 @@ const SearchModalPage = (props) => {
                     isExpanded={selectedCard === 'When'}
                     searchCardsContent={{
                         collapsedTitle: 'When',
-                        collapsedDefaultText: 'Add dates',
+                        collapsedDefaultText: whenCardCollapsedDefaultText(),
                     }}
                 />
                 <SearchCards

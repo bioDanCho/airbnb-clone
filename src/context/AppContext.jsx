@@ -11,7 +11,14 @@ export function AppContextProvider({ children }) {
         where: {
             destination: '',
         },
-        when: {},
+        when: {
+            dateType: 'choose', // choose or flexible,
+            choose: {},
+            flexible: {
+                stayDuration: 'week',
+                whenMonthYear: [],
+            },
+        },
         who: {
             adults: 0,
             children: 0,
@@ -25,7 +32,14 @@ export function AppContextProvider({ children }) {
             where: {
                 destination: '',
             },
-            when: {},
+            when: {
+                dateType: 'choose', // choose or flexible,
+                choose: {},
+                flexible: {
+                    stayDuration: 'week',
+                    whenMonthYear: [],
+                },
+            },
             who: {
                 adults: 0,
                 children: 0,

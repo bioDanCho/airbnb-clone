@@ -3,6 +3,7 @@ import './SearchCards.scss';
 import { useAppContext } from '../../../context/AppContext';
 import WhereCard from './WhereCard/WhereCard';
 import WhoCard from './WhoCard/WhoCard';
+import WhenCard from './WhenCard/WhenCard';
 
 const SearchCards = (props) => {
     const { isModalOpen } = useAppContext();
@@ -13,7 +14,7 @@ const SearchCards = (props) => {
         if (searchCardsContent.collapsedTitle === 'Where') {
             return <WhereCard />;
         } else if (searchCardsContent.collapsedTitle === 'When') {
-            return <WhereCard />;
+            return <WhenCard />;
         } else {
             return <WhoCard />;
         }
@@ -39,7 +40,7 @@ const SearchCards = (props) => {
         >
             <div className='collapsed_container'>
                 <div className='short_title'>{collapsedTitle}</div>
-                <div>{collapsedDefaultText}</div>
+                <div className='collapsed_text'>{collapsedDefaultText}</div>
             </div>
         </div>
     );

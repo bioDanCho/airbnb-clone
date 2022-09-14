@@ -92,6 +92,7 @@ const WhoCard = () => {
 
                 return (
                     <div
+                        key={idx}
                         className={`person_container ${
                             idx === PERSONS_DATA.length - 1 ? 'last' : ''
                         }`}
