@@ -3,42 +3,18 @@ import './LandingPage.scss';
 import { useAppContext } from '../../../context/AppContext';
 import { BsFillMapFill } from 'react-icons/bs';
 import Button from '../../atoms/Button/Button';
-import AnimatedDiv from '../../atoms/AnimatedDiv/AnimatedDiv';
 import ClickableSearchBar from '../../molecules/ClickableSearchBar/ClickableSearchBar';
 import ScrollableSelectionBar from '../../molecules/ScrollableSelectionBar/ScrollableSelectionBar';
 import LandingPageCardsSection from '../../organisms/LandingPageCardsSection/LandingPageCardsSection';
 import SearchModalPage from '../SearchModalPage/SearchModalPage';
 import Modal from '../../organisms/Modal/Modal';
-import BottomBar from '../../molecules/BottomBar/BottomBar';
-
-import { CreateAnimation, Animation } from '@ionic/react';
+import { CreateAnimation } from '@ionic/react';
 
 const LandingPage = () => {
-    const { isModalOpen, setIsModalOpen } = useAppContext();
+    const { isModalOpen, setIsModalOpen, offset } = useAppContext();
 
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
-
-    const [offset, setOffset] = useState(0);
-    const [scrollSpeed, setScrollSpeed] = useState('slow');
-
-    // scroll animations code starts
-    React.useEffect(() => {
-        const onScroll = () => {
-            if (Math.abs(window.pageYOffset - offset) > 25) {
-                setScrollSpeed('fast');
-            } else {
-                setScrollSpeed('slow');
-            }
-            setOffset(window.pageYOffset);
-        };
-
-        // clean up code
-        window.removeEventListener('scroll', onScroll);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
-    }, [offset]);
-    // scroll animations code ends
 
     const handleSearchClick = () => {
         setModalType('search');
@@ -109,9 +85,9 @@ const LandingPage = () => {
                     },
                     { property: 'opacity', fromValue: '0', toValue: '1' },
                 ]}
-                play={offset >= 150}
+                play={offset >= 200}
             >
-                <div className={`map_btn ${offset < 150 ? 'hidden' : ''}`}>
+                <div className={`map_btn ${offset < 200 ? 'hidden' : ''}`}>
                     <Button
                         btnContent={
                             <div

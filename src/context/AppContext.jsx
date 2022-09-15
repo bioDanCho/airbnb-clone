@@ -31,8 +31,6 @@ export function AppContextProvider({ children }) {
         },
     });
 
-    console.log(searchData);
-
     const resetSearchData = () => {
         setSearchData({
             where: {
@@ -59,6 +57,36 @@ export function AppContextProvider({ children }) {
         });
     };
 
+    const [offset, setOffset] = useState(0);
+    // const [scrollSpeed, setScrollSpeed] = useState('slow');
+    const [scrollDirection, setScrollDirection] = useState('down');
+
+    // scroll animations code starts
+    React.useEffect(() => {
+        const onScroll = () => {
+            if (offset < window.pageYOffset) {
+                setScrollDirection('down');
+            } else {
+                setScrollDirection('up');
+            }
+
+            // if (Math.abs(window.pageYOffset - offset) > 25) {
+            //     setScrollSpeed('fast');
+            // } else {
+            //     setScrollSpeed('slow');
+            // }
+            setOffset(window.pageYOffset);
+        };
+
+        // clean up code
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [offset]);
+    // scroll animations code ends
+
+    console.log(offset);
+
     return (
         <AppContext.Provider
             value={{
@@ -67,6 +95,12 @@ export function AppContextProvider({ children }) {
                 searchData,
                 setSearchData,
                 resetSearchData,
+                offset,
+                setOffset,
+                // scrollSpeed,
+                // setScrollSpeed,
+                scrollDirection,
+                setScrollDirection,
             }}
         >
             {children}

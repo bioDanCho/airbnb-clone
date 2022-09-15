@@ -1,6 +1,9 @@
 .bottom_bar_navigation {
     position: fixed;
-    bottom: 0;
     width: 100vw;
-    z-index: 888;
+    z-index: 1;
+}
+
+.hidden {
+    visibility: hidden;
 }
