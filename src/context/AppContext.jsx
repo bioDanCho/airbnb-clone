@@ -13,7 +13,11 @@ export function AppContextProvider({ children }) {
         },
         when: {
             dateType: 'choose', // choose or flexible,
-            choose: {},
+            choose: {
+                startDate: '',
+                endDate: '',
+                plusMinusDays: 'Exact dates',
+            },
             flexible: {
                 stayDuration: 'week',
                 whenMonthYear: [],
@@ -27,6 +31,8 @@ export function AppContextProvider({ children }) {
         },
     });
 
+    console.log(searchData);
+
     const resetSearchData = () => {
         setSearchData({
             where: {
@@ -34,7 +40,11 @@ export function AppContextProvider({ children }) {
             },
             when: {
                 dateType: 'choose', // choose or flexible,
-                choose: {},
+                choose: {
+                    startDate: '',
+                    endDate: '',
+                    plusMinusDays: 'Exact dates',
+                },
                 flexible: {
                     stayDuration: 'week',
                     whenMonthYear: [],

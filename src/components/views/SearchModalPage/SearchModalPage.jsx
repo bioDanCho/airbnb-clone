@@ -60,10 +60,25 @@ const SearchModalPage = (props) => {
 
     const whenCardCollapsedDefaultText = () => {
         const { dateType } = searchData.when;
+        const { startDate, endDate, plusMinusDays } = searchData.when.choose;
         const { stayDuration, whenMonthYear } = searchData.when.flexible;
-        if (whenMonthYear.length === 0) {
-            return 'Add dates';
-        } else {
+
+        if (dateType === 'choose') {
+            if (!startDate || !endDate) return 'Add dates';
+
+            const start = startDate.slice(-5);
+            const end = endDate.slice(-5);
+
+            return `${start} ~ ${end} ${
+                plusMinusDays === 'Exact dates'
+                    ? ''
+                    : '(' + '\xB1' + plusMinusDays + ')'
+            }`;
+        }
+
+        if (dateType === 'flexible') {
+            if (whenMonthYear.length === 0) return 'Add dates';
+
             const months = whenMonthYear.map((item) => {
                 let monthStr = `${item.slice(0, item.length - 4)}`;
                 if (whenMonthYear.length > 1) {

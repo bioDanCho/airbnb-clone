@@ -36,17 +36,6 @@
     }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.scrollableButtons::-webkit-scrollbar {
-    display: none;
-}
-
-/* Hide scrollbar for IE, Edge add Firefox */
-.scrollableButtons {
-    -ms-overflow-style: none;
-    scrollbar-width: none; /* Firefox */
-}
-
 .active {
     animation: grow-shrink 0.2s linear;
 }
@@ -61,4 +50,15 @@
     100% {
         scale: 1;
     }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollableButtons::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge add Firefox */
+.scrollableButtons {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
 }

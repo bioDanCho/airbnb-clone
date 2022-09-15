@@ -7,7 +7,6 @@ import { flexibleMonthsData } from '../../../../../assets/data/flexible-months-d
 
 const FlexibleView = () => {
     const { searchData, setSearchData } = useAppContext();
-    console.log('test', searchData);
     const { when } = searchData;
     const { flexible } = when;
     const { stayDuration, whenMonthYear } = flexible;
@@ -39,10 +38,6 @@ const FlexibleView = () => {
                     flexible: {
                         ...searchData.when.flexible,
                         stayDuration: duration,
-
-                        // whenMonthYear: monthYear
-                        //     ? monthYear
-                        //     : searchData.when.flexible.whenMonthYear,
                     },
                 },
             });

@@ -9,12 +9,10 @@ const ClickableSearchBar = (props) => {
     const { handleSearchClick, handleFilterClick } = props;
 
     const handleSearchBarClick = () => {
-        console.log('search bar clicked!');
         handleSearchClick();
     };
 
     const handleButtonClick = () => {
-        console.log('filter button clicked!');
         handleFilterClick();
     };
 

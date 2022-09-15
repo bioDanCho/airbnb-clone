@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../../../../context/AppContext';
 import TwoButton from '../../../atoms/TwoButton/TwoButton';
+import ChooseView from './ChooseView/ChooseView';
 import FlexibleView from './FlexibleView/FlexibleView';
 import './WhenCard.scss';
 
@@ -28,7 +29,7 @@ const WhenCard = () => {
                     defaultOption={dateType === 'choose' ? 'first' : 'second'}
                 />
             </div>
-            {dateType === 'choose' ? <div>Calendar</div> : <FlexibleView />}
+            {dateType === 'choose' ? <ChooseView /> : <FlexibleView />}
         </div>
     );
 };
