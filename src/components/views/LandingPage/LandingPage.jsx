@@ -11,11 +11,34 @@ import SearchModalPage from '../SearchModalPage/SearchModalPage';
 import Modal from '../../organisms/Modal/Modal';
 import BottomBar from '../../molecules/BottomBar/BottomBar';
 
+import { CreateAnimation, Animation } from '@ionic/react';
+
 const LandingPage = () => {
     const { isModalOpen, setIsModalOpen } = useAppContext();
 
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
+
+    const [offset, setOffset] = useState(0);
+    const [scrollSpeed, setScrollSpeed] = useState('slow');
+
+    // scroll animations code starts
+    React.useEffect(() => {
+        const onScroll = () => {
+            if (Math.abs(window.pageYOffset - offset) > 25) {
+                setScrollSpeed('fast');
+            } else {
+                setScrollSpeed('slow');
+            }
+            setOffset(window.pageYOffset);
+        };
+
+        // clean up code
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, [offset]);
+    // scroll animations code ends
 
     const handleSearchClick = () => {
         setModalType('search');
@@ -76,56 +99,47 @@ const LandingPage = () => {
             )}
             {/* modal ends */}
 
-            <div className='bottom_content'>
-                <AnimatedDiv
-                    animProgress={[0, 0.1, 0.4, 0.5]}
-                    opacityProgress={[1, 1, 1, 1]}
-                    // xPosProgress={[0, 0]}
-                    yPosProgress={[60, 0, 0, 60]}
-                >
-                    <div className='map_btn'>
-                        <Button
-                            btnContent={
-                                <div
-                                    style={{
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}
-                                >
-                                    <span style={{ paddingRight: '5px' }}>
-                                        Map
-                                    </span>
-                                    <BsFillMapFill />
-                                </div>
-                            }
-                            onButtonClick={() => {
-                                alert('map clicked!');
-                            }}
-                            btnOptions={null}
-                            btnStyleOverride={{
-                                outline: '1px solid rgba(0, 0, 0, 0.08)',
-                                borderRadius: '24px',
-                                padding: '11px 19px',
-                                color: '#FFF',
-                                fontSize: '12px',
-                                backgroundColor: 'rgb(34, 34, 34)',
-                            }}
-                        />
-                    </div>
-                </AnimatedDiv>
-
-                {/* this is hidden for now */}
-                <AnimatedDiv
-                    animProgress={[0, 0.1, 0.4, 0.5]}
-                    opacityProgress={[1, 1, 1, 1]}
-                    yPosProgress={[0, 0, 0, 70]}
-                >
-                    <div className='bottom_bar'>
-                        <BottomBar />
-                    </div>
-                </AnimatedDiv>
-            </div>
+            <CreateAnimation
+                duration={300}
+                fromTo={[
+                    {
+                        property: 'bottom',
+                        fromValue: '0px',
+                        toValue: '70px',
+                    },
+                    { property: 'opacity', fromValue: '0', toValue: '1' },
+                ]}
+                play={offset >= 150}
+            >
+                <div className={`map_btn ${offset < 150 ? 'hidden' : ''}`}>
+                    <Button
+                        btnContent={
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <span style={{ paddingRight: '5px' }}>Map</span>
+                                <BsFillMapFill />
+                            </div>
+                        }
+                        onButtonClick={() => {
+                            alert('map clicked!');
+                        }}
+                        btnOptions={null}
+                        btnStyleOverride={{
+                            outline: '1px solid rgba(0, 0, 0, 0.08)',
+                            borderRadius: '24px',
+                            padding: '11px 19px',
+                            color: '#FFF',
+                            fontSize: '12px',
+                            backgroundColor: 'rgb(34, 34, 34)',
+                        }}
+                    />
+                </div>
+            </CreateAnimation>
         </div>
     );
 };
