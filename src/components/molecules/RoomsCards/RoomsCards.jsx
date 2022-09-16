@@ -2,22 +2,25 @@ import React from 'react';
 import ImageCarousel from '../../atoms/ImageCarousel/ImageCarousel';
 import './RoomsCards.scss';
 
-const RoomsCards = () => {
+const RoomsCards = (props) => {
+    const { roomData } = props;
+    const { location, rating, distance, dates, price, images, category } =
+        roomData;
     return (
         <div className='RoomsCards_container'>
             <div className='carousel'>
-                <ImageCarousel />
+                <ImageCarousel images={images} />
             </div>
             <div className='content'>
                 <div className='location_and_rank'>
-                    <div>Mill Creek, Pennsylvania, US</div>
+                    <div>{location}</div>
                     <div>
-                        &#9733; <span>4.95</span>
+                        &#9733; <span>{rating}</span>
                     </div>
                 </div>
-                <div className='distance'>376km</div>
-                <div className='dates'>Apr. 15 - 20</div>
-                <div className='price'>$233 night</div>
+                <div className='distance'>{distance} km</div>
+                <div className='dates'>{dates}</div>
+                <div className='price'>${price} night</div>
             </div>
         </div>
     );

@@ -5,14 +5,12 @@
         position: sticky;
         top: 0;
         background-color: #fff;
+        z-index: 2;
 
         .searchbar_section {
             margin: 0 1.5rem;
             padding: 1rem 0;
         }
-
-        // .selectionbar_section {
-        // }
     }
 
     .cards_section {
@@ -21,24 +19,18 @@
         padding-bottom: 3rem;
     }
 
-    .bottom_content {
+    .map_btn {
         position: fixed;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .map_btn {
-            width: 88px;
-            padding-bottom: 1rem;
-        }
-
-        .bottom_bar {
-            width: 100vw;
-            visibility: hidden;
-            z-index: -999;
-        }
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: 88px;
     }
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.move_down {
+    transform: translate(-50%, 35px) !important;
 }

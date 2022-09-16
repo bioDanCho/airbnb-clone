@@ -20,6 +20,13 @@
         .short_title {
             color: $gray;
         }
+
+        .collapsed_text {
+            max-width: 12rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
 
