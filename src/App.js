@@ -6,7 +6,6 @@ import WishlistsPage from './components/views/WishlistsPage/WishlistsPage';
 import TripsPage from './components/views/TripsPage/TripsPage';
 import InboxPage from './components/views/InboxPage/InboxPage';
 import ProfilePage from './components/views/ProfilePage/ProfilePage';
-import AnimatedDiv from './components/atoms/AnimatedDiv/AnimatedDiv';
 import BottomBar from './components/molecules/BottomBar/BottomBar';
 
 // ionic
@@ -39,7 +38,7 @@ const App = () => {
                         fromValue: '-70px',
                         toValue: '-1px',
                     },
-                    { property: 'opacity', fromValue: '0', toValue: '1' },
+                    // { property: 'opacity', fromValue: '0', toValue: '1' },
                 ]}
                 play={offset < 1000 || scrollDirection === 'up'}
             >

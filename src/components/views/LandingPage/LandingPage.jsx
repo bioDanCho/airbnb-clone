@@ -11,7 +11,8 @@ import Modal from '../../organisms/Modal/Modal';
 import { CreateAnimation } from '@ionic/react';
 
 const LandingPage = () => {
-    const { isModalOpen, setIsModalOpen, offset } = useAppContext();
+    const { isModalOpen, setIsModalOpen, offset, scrollDirection } =
+        useAppContext();
 
     const [modalType, setModalType] = useState('search');
     const [selectedTab, setSelectedTab] = useState(0);
@@ -87,7 +88,13 @@ const LandingPage = () => {
                 ]}
                 play={offset >= 200}
             >
-                <div className={`map_btn ${offset < 200 ? 'hidden' : ''}`}>
+                <div
+                    className={`map_btn ${offset < 200 ? 'hidden' : ''} ${
+                        offset >= 1000 && scrollDirection === 'down'
+                            ? 'move_down'
+                            : ''
+                    }`}
+                >
                     <Button
                         btnContent={
                             <div
